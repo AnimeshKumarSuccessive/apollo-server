@@ -1,5 +1,6 @@
 import { fileLoader, mergeTypes } from 'merge-graphql-schemas';
 import path from 'path';
+import * as trainee from './trainee';
 
 import * as user from './user';
 
@@ -11,7 +12,11 @@ export default {
   resolvers: {
     Query: {
       ...user.Query,
+      ...trainee.Query
     },
+    Mutation:{
+      ...trainee.Mutation,
+    }
   },
   typeDefs,
 };
